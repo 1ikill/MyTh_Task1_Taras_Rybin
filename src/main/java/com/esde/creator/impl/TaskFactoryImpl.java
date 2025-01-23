@@ -6,8 +6,8 @@ import com.esde.task.SoftwareUpdateCheckTask;
 import com.esde.task.SystemHealthCheckTask;
 import com.esde.task.Task;
 import com.esde.task.VirusScanTask;
-import com.esde.task.type.TaskType;
-import com.esde.utill.TxtParser;
+import com.esde.task.TaskType;
+import com.esde.reader.TxtParser;
 
 import java.util.ArrayList;
 import java.util.List;

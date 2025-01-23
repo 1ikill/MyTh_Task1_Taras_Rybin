@@ -1,7 +1,7 @@
 package com.esde.creator;
 
 import com.esde.task.Task;
-import com.esde.task.type.TaskType;
+import com.esde.task.TaskType;
 
 import java.util.List;
 

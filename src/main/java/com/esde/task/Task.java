@@ -1,7 +1,5 @@
 package com.esde.task;
 
-import java.util.concurrent.Callable;
-
-public interface Task extends Callable<Void> {
+public interface Task extends Runnable {
     String getTaskName();
 }

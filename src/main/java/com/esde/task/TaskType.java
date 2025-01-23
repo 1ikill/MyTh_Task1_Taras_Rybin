@@ -1,4 +1,4 @@
-package com.esde.task.type;
+package com.esde.task;
 
 public enum TaskType {
 

@@ -25,7 +25,7 @@ public class TaskScheduler {
                     try {
                         Task task = taskQueue.poll(pollTimeout, TimeUnit.SECONDS);
                         if (task != null) {
-                            task.call();
+                            task.run();
                             pollTimeout = 0;
                         } else {
                             pollTimeout = 1;
@@ -36,10 +36,9 @@ public class TaskScheduler {
                             Thread.currentThread().interrupt();
                             return;
                         } else {
-                            logger.warn("Worker interrupted unexpectedly.", e);
+                            logger.error("Worker interrupted unexpectedly.", e);
+                            throw new RuntimeException(e);
                         }
-                    } catch (Exception e) {
-                        logger.error("Error executing task.", e);
                     }
                 }
                 logger.info("Worker stopped.");
@@ -57,7 +56,7 @@ public class TaskScheduler {
                 logger.info("Scheduled: " + task.getTaskName());
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
-                logger.warn("Task scheduling interrupted for: " + task.getTaskName(), e);
+                logger.error("Task scheduling interrupted for: " + task.getTaskName(), e);
             }
         }).start();
     }
